@@ -102,3 +102,64 @@ For testing and demonstration purposes:
 ```
 
 ---
+
+# 👤 Users
+
+| Method | Endpoint                | Access        | Description                   |
+| ------ | ----------------------- | ------------- | ----------------------------- |
+| POST   | `/api/users/register`   | Public        | Register tenant/landlord      |
+| GET    | `/api/users/me`         | Authenticated | Get current user's profile    |
+| PUT    | `/api/users/my-profile` | Authenticated | Update current user's profile |
+
+### Register User
+
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "Password123!",
+  "role": "TENANT",
+  "phone": "01712345678",
+  "address": "Dhaka, Bangladesh",
+  "profilePhoto": "https://example.com/profile.jpg"
+}
+```
+
+---
+
+# 🏠 Properties
+
+Property listing endpoints are publicly accessible.
+
+| Method | Endpoint              | Description          |
+| ------ | --------------------- | -------------------- |
+| GET    | `/api/properties`     | Get all properties   |
+| GET    | `/api/properties/:id` | Get property details |
+
+---
+
+# 🏷️ Categories
+
+| Method | Endpoint          | Access | Description        |
+| ------ | ----------------- | ------ | ------------------ |
+| GET    | `/api/categories` | Public | Get all categories |
+
+### Admin Category APIs
+
+| Method | Endpoint                    | Description     |
+| ------ | --------------------------- | --------------- |
+| POST   | `/api/admin/categories`     | Create category |
+| PATCH  | `/api/admin/categories/:id` | Update category |
+| DELETE | `/api/admin/categories/:id` | Delete category |
+
+### Category Request
+
+```json
+{
+  "name": "Apartment",
+  "description": "Modern apartments available for rent."
+}
+```
+
+---
+
