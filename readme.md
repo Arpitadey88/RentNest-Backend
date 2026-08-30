@@ -271,3 +271,38 @@ A tenant can only submit a review when:
 - The tenant has not already reviewed the property
 
 ---
+
+# 👨‍💼 Admin APIs
+
+All admin endpoints require an authenticated admin account.
+
+| Method | Endpoint                      | Description             |
+| ------ | ----------------------------- | ----------------------- |
+| GET    | `/api/admin/users`            | Get all users           |
+| PATCH  | `/api/admin/users/:id/status` | Ban/unban user          |
+| POST   | `/api/admin/categories`       | Create category         |
+| PATCH  | `/api/admin/categories/:id`   | Update category         |
+| DELETE | `/api/admin/categories/:id`   | Delete category         |
+| GET    | `/api/admin/rentals`          | Get all rental requests |
+| GET    | `/api/admin/properties`       | Get all properties      |
+
+---
+
+# 🔒 Authorization
+
+Protected APIs require a JWT access token.
+
+Add the following header in Postman:
+
+```text
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Example:
+
+```text
+Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
+```
+
+---
+
