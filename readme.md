@@ -306,3 +306,38 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
 
 ---
 
+# 🔄 Main Application Flow
+
+```text
+                    ┌──────────────┐
+                    │    Register  │
+                    └──────┬───────┘
+                           ↓
+                    ┌──────────────┐
+                    │     Login    │
+                    └──────┬───────┘
+                           ↓
+              ┌────────────┴────────────┐
+              ↓                         ↓
+          🧑 Tenant                 🏠 Landlord
+              │                         │
+              ↓                         ↓
+      Browse Properties          Create Properties
+              │                         │
+              ↓                         ↓
+      Submit Rental Request      Manage Requests
+              │                         │
+              └──────────┬──────────────┘
+                         ↓
+                  Landlord Accepts
+                         ↓
+                   Stripe Payment
+                         ↓
+                    Rental Active
+                         ↓
+                     Completed
+                         ↓
+                      Review
+```
+
+---
