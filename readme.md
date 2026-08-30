@@ -68,3 +68,37 @@ Admins can:
 - Monitor the platform
 
 ---
+## 🔐 Admin Credentials
+
+For testing and demonstration purposes:
+
+```json
+{
+  "email": "admin@admin.com",
+  "password": "Password123!"
+}
+```
+
+> ⚠️ **Security:** These credentials are intended for development/testing only. Change the password before using the application in production.
+
+---
+
+# 📌 API Endpoints
+
+## 🔑 Authentication
+
+| Method | Endpoint                  | Description                 |
+| ------ | ------------------------- | --------------------------- |
+| POST   | `/api/auth/login`         | Login user                  |
+| POST   | `/api/auth/refresh-token` | Generate a new access token |
+
+### Login Request
+
+```json
+{
+  "email": "admin@admin.com",
+  "password": "Password123!"
+}
+```
+
+---
