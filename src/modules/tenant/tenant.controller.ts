@@ -1,0 +1,74 @@
+import { NextFunction, Request, Response } from "express";
+import { catchAsync } from "../utils/catchAsync";
+import { tenantService } from "./tenant.service";
+import { sendResponse } from "../utils/sendResponse";
+import HttpStatus from "http-status";
+
+const createRequest = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id as string;
+    const payload = req.body;
+
+    const result = await tenantService.createRequest(userId, payload);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: HttpStatus.CREATED,
+      message: "Rental Request created successfully",
+      data: result,
+    });
+  },
+);
+
+const getAllRequest = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id as string;
+    const result = await tenantService.getAllRequest(userId);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: HttpStatus.OK,
+      message: "Requests retrieved successfully",
+      data: result,
+    });
+  },
+);
+
+const getSingleRequest = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id as string;
+    const requestId = req.params.id as string;
+
+    const result = await tenantService.getSingleRequest(userId, requestId);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: HttpStatus.OK,
+      message: "Request retrieved successfully",
+      data: result,
+    });
+  },
+);
+
+const cancelRequest = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id as string;
+    const id = req.params.id as string;
+
+    const result = await tenantService.cancelRequest(userId, id);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: HttpStatus.OK,
+      message: "Rental Request cancelled successfully",
+      data: result,
+    });
+  },
+);
+
+export const tenantController = {
+  createRequest,
+  getAllRequest,
+  getSingleRequest,
+  cancelRequest,
+};
