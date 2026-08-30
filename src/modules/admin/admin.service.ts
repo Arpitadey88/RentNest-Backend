@@ -27,7 +27,7 @@ const getAllUsers = async (query: IUserQuery) => {
     });
   }
 
-  // Object.values(Role).includes(role as Role)
+
 
   if (query.role && Object.values(UserRole).includes(query.role as UserRole)) {
     andConditions.push({ role: query.role as UserRole });
