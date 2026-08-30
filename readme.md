@@ -341,3 +341,56 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
 ```
 
 ---
+
+# 🧪 Testing
+
+You can test the APIs using:
+
+- Postman
+- Thunder Client
+- Insomnia
+
+For protected endpoints, first login and copy the returned access token.
+
+Then add:
+
+```text
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+to the request headers.
+
+---
+
+# 📝 Error Response Format
+
+The API follows a consistent response structure.
+
+### Success
+
+```json
+{
+  "success": true,
+  "statusCode": 200,
+  "message": "Request successful",
+  "data": {}
+}
+```
+
+### Error
+
+```json
+{
+  "success": false,
+  "statusCode": 400,
+  "message": "Something went wrong",
+  "error": {}
+}
+```
+
+---
+
+
+## ⭐ RentNest
+
+A rental marketplace API designed to connect **tenants and landlords** through a secure and scalable backend system.
