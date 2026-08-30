@@ -212,3 +212,62 @@ COMPLETED
 ```
 
 ---
+
+# 💳 Payment APIs
+
+Payments are processed using **Stripe Checkout**.
+
+| Method | Endpoint                    | Access | Description                    |
+| ------ | --------------------------- | ------ | ------------------------------ |
+| POST   | `/api/payments/checkout`    | Tenant | Create Stripe checkout session |
+| GET    | `/api/payments/history`     | Tenant | Get payment history            |
+| GET    | `/api/payments/history/:id` | Tenant | Get payment details            |
+| POST   | `/api/payments/webhook`     | Stripe | Handle Stripe webhook          |
+
+### Payment Flow
+
+```text
+Tenant submits rental request
+          ↓
+Landlord accepts request
+          ↓
+Tenant creates checkout session
+          ↓
+Stripe Checkout
+          ↓
+Payment completed
+          ↓
+Stripe Webhook
+          ↓
+Payment status = PAID
+```
+
+---
+
+# ⭐ Review APIs
+
+| Method | Endpoint                               | Access   | Description              |
+| ------ | -------------------------------------- | -------- | ------------------------ |
+| POST   | `/api/reviews`                         | Tenant   | Create review            |
+| GET    | `/api/reviews`                         | Public   | Get all reviews          |
+| GET    | `/api/reviews/:id`                     | Public   | Get single review        |
+| GET    | `/api/landlord/properties/:id/reviews` | Landlord | Get reviews for property |
+
+### Create Review
+
+```json
+{
+  "rentalRequestId": "RENTAL_REQUEST_ID",
+  "rating": 5,
+  "comment": "Excellent property and a great rental experience."
+}
+```
+
+A tenant can only submit a review when:
+
+- The rental belongs to the logged-in tenant
+- The rental is completed
+- Payment has been completed
+- The tenant has not already reviewed the property
+
+---
