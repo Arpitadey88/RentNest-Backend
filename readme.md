@@ -5,3 +5,24 @@ RentNest is a backend API for a rental property marketplace where tenants can fi
 
 ---
 
+## 🚀 Live API
+
+**Backend API:** `https://rent-nest-neon-ten.vercel.app`
+
+---
+
+## 🛠️ Technology Stack
+
+- **Node.js**
+- **Express.js**
+- **TypeScript**
+- **PostgreSQL**
+- **Prisma ORM**
+- **JWT Authentication**
+- **bcrypt**
+- **Stripe**
+- **REST API**
+- **CORS**
+
+---
+
