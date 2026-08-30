@@ -26,3 +26,45 @@ RentNest is a backend API for a rental property marketplace where tenants can fi
 
 ---
 
+## 👥 User Roles
+
+### 🧑 Tenant
+
+Tenants can:
+
+- Register and login
+- Browse rental properties
+- Search and filter properties
+- Submit rental requests
+- View rental request history
+- Cancel rental requests
+- Make payments after landlord approval
+- View payment history
+- Leave reviews after completing a rental
+- Manage their profile
+
+### 🏠 Landlord
+
+Landlords can:
+
+- Register and login
+- Create rental properties
+- Update properties
+- Delete properties
+- Manage property availability
+- View rental requests
+- Accept or reject rental requests
+- View reviews for their properties
+
+### 👨‍💼 Admin
+
+Admins can:
+
+- View all users
+- Ban/unban users
+- Manage property categories
+- View all properties
+- View all rental requests
+- Monitor the platform
+
+---
