@@ -163,3 +163,52 @@ Property listing endpoints are publicly accessible.
 
 ---
 
+# 🏡 Landlord APIs
+
+All landlord endpoints require a valid landlord JWT.
+
+| Method | Endpoint                               | Description                  |
+| ------ | -------------------------------------- | ---------------------------- |
+| POST   | `/api/landlord/properties`             | Create property              |
+| PUT    | `/api/landlord/properties/:id`         | Update property              |
+| DELETE | `/api/landlord/properties/:id`         | Delete property              |
+| GET    | `/api/landlord/requests`               | Get rental requests          |
+| PATCH  | `/api/landlord/requests/:id`           | Accept/reject rental request |
+| GET    | `/api/landlord/properties/:id/reviews` | Get property reviews         |
+
+### Rental Request Status
+
+```text
+REQUESTED
+ACCEPTED
+REJECTED
+CANCELLED
+ACTIVE
+COMPLETED
+```
+
+---
+
+# 🧑‍💻 Tenant / Rental APIs
+
+| Method | Endpoint                  | Description                  |
+| ------ | ------------------------- | ---------------------------- |
+| POST   | `/api/rentals`            | Create rental request        |
+| GET    | `/api/rentals`            | Get tenant's rental requests |
+| GET    | `/api/rentals/:id`        | Get rental request details   |
+| PATCH  | `/api/rentals/:id/cancel` | Cancel rental request        |
+
+### Create Rental Request
+
+```json
+{
+  "propertyId": "PROPERTY_ID",
+  "startDate": "2026-09-01T00:00:00.000Z",
+  "endDate": "2027-08-31T00:00:00.000Z",
+  "message": "I am interested in renting this property for one year.",
+  "monthlyRent": 25000,
+  "totalAmount": 300000
+}
+```
+
+---
